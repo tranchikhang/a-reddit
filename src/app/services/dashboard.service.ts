@@ -16,7 +16,8 @@ export class DashboardService {
         return this.httpClient.get(this.appConfigService.baseUrl + '/r/worldnews.json').pipe(
             map(res => {
                 return res['data']['children'].map(thread => {
-                    return new Thread(thread['data']['title'], thread['data']['author'], thread['data']['permalink'], thread['data']['url']);
+                    let t = thread['data'];
+                    return new Thread(t['title'], t['author'], t['permalink'], t['url']);
                 });
             }
             )
