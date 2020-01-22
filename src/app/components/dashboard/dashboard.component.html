@@ -1,0 +1,6 @@
+<label>
+    Subreddit:
+    <input type="text" [formControl]="subredditInput">
+</label>
+<button (click)="toSubreddit()">Go!</button>
+<app-thread-list [threads]="threads"></app-thread-list>
