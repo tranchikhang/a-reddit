@@ -8,12 +8,20 @@ import { AppConfigService } from '../services/app-config.service'
 @Injectable({
     providedIn: 'root'
 })
-export class DashboardService {
+export class CommonService {
 
     constructor(private httpClient: HttpClient, private appConfigService: AppConfigService) { }
 
-    getThreads(): Observable<any> {
-        return this.httpClient.get(this.appConfigService.baseUrl + '/r/worldnews.json').pipe(
+    getFrontPage() {
+        return this.getThreads('/');
+    }
+
+    getSubreddit(subreddit: String) {
+        return this.getThreads('/r/' + subreddit);
+    }
+
+    getThreads(path: String): Observable<any> {
+        return this.httpClient.get(this.appConfigService.baseUrl + path + '.json').pipe(
             map(res => {
                 return res['data']['children'].map(thread => {
                     let t = thread['data'];

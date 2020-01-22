@@ -3,19 +3,25 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { APP_INITIALIZER } from '@angular/core';
-import { AppConfigService } from './services/app-config.service'
+import { AppConfigService } from './services/app-config.service';
+import { SubredditComponent } from './components/subreddit/subreddit.component';
+import { ThreadListComponent } from './components/thread-list/thread-list.component'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
         AppComponent,
-        DashboardComponent
+        DashboardComponent,
+        SubredditComponent,
+        ThreadListComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     providers: [
         {

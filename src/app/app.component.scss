@@ -1,0 +1,13 @@
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.content {
+    flex-basis: 70%;
+}
+.left-column {
+    flex-basis: 15%;
+}
