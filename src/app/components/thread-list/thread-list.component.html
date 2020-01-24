@@ -1,6 +1,7 @@
 <div class="list-thread">
     <div class="thread" *ngFor="let thread of threads">
-        <div class="title">{{ thread.title }}</div>
-        <div class="info">{{ thread.author }}</div>
+        <div class="title"><a href="{{ thread.permalink }}">{{ thread.linkFlairText }} {{ thread.title }}</a></div>
+        <div class="info-1"><span class="points">{{ thread.score }}</span> pts - <span class="comments">{{ thread.num_comments }}</span> comments</div>
+        <div class="info-2">{{ thread.createdTime| date:'fullDate' }} by <span class="user">{{ thread.author }}</span></div>
     </div>
 </div>

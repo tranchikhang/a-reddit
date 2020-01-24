@@ -24,8 +24,7 @@ export class CommonService {
         return this.httpClient.get(this.appConfigService.baseUrl + path + '.json').pipe(
             map(res => {
                 return res['data']['children'].map(thread => {
-                    let t = thread['data'];
-                    return new Thread(t['title'], t['author'], t['permalink'], t['url']);
+                    return new Thread(thread['data']);
                 });
             }
             )
