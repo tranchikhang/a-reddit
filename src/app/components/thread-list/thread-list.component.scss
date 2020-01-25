@@ -4,5 +4,21 @@
 }
 
 .thread {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
+}
+
+.thread .title {
+    color: #353535;
+}
+
+.thread .points {
+    color: #E64569;
+}
+
+.thread .user {
+    color: #3d963b;
+}
+
+.thread .comments {
+    color: #439ECF;
 }

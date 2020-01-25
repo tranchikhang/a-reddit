@@ -9,13 +9,17 @@ import { AppConfigService } from './services/app-config.service';
 import { SubredditComponent } from './components/subreddit/subreddit.component';
 import { ThreadListComponent } from './components/thread-list/thread-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ThreadComponent } from './components/thread/thread.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DashboardComponent,
         SubredditComponent,
-        ThreadListComponent
+        ThreadListComponent,
+        NavbarComponent,
+        ThreadComponent
     ],
     imports: [
         BrowserModule,

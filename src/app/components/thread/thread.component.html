@@ -1,0 +1,32 @@
+<div class="thread" *ngIf="thread">
+    <div class="post">
+        <div class="title">
+            {{ thread.title }}
+        </div>
+        <div class="info">
+            {{ thread.createdTime| date:'fullDate' }} by <span class="user">{{ thread.author }}</span>
+        </div>
+        <div class="content">
+            {{ thread.content }}
+        </div>
+        <div class="info">
+            <span class="points">{{ thread.score }}</span> pts - <span class="comments">{{ thread.num_comments }}</span>
+            comments
+        </div>
+    </div>
+    <div class="replies">
+        <ng-container *ngTemplateOutlet="treeViewList; context:{$implicit:thread.replies}">
+        </ng-container>
+        <ng-template #treeViewList let-list>
+            <div class="reply" *ngFor="let reply of list;let i=index">
+                <span class="user">{{ reply.author }}</span>
+                <div class="content" [innerHTML]="toHTML(reply.content)"></div>
+                <div class="child">
+                    <ng-container *ngTemplateOutlet="treeViewList;
+                            context:{$implicit: reply.replies}">
+                    </ng-container>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</div>

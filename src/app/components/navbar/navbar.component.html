@@ -1,0 +1,12 @@
+<div class="navbar">
+    <div class="navbar-item">
+        <a href="/">Frontpage</a>
+    </div>
+    <div class="navbar-item">
+        <label>
+            Subreddit:
+            <input (keyup.enter)="toSubreddit()" type="text" [formControl]="subredditInput">
+        </label>
+        <button (click)="toSubreddit()">Go!</button>
+    </div>
+</div>

@@ -22,11 +22,11 @@ export class DashboardComponent implements OnInit {
         this.loadFrontpage();
     }
 
-    loadFrontpage() {
+    loadFrontpage(): void {
         this.commonService.getFrontPage().subscribe(res => { this.threads = res });
     }
 
-    toSubreddit() {
+    toSubreddit(): void {
         this.router.navigate(['/r/' + this.subredditInput.value]);
     }
 }

@@ -22,7 +22,7 @@ export class SubredditComponent implements OnInit {
         this.loadSubreddit();
     }
 
-    loadSubreddit() {
+    loadSubreddit(): void {
         this.commonService.getSubreddit(this.subreddit).subscribe(res => {
             this.threads = res;
         })
