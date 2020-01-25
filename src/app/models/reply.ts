@@ -11,7 +11,7 @@ export class Reply {
         this.id = r['id'];
         this.author = r['author'];
         this.score = r['score'];
-        this.content = r['body_html']
+        this.content = r['body']
         this.permalink = r['permalink'];
         this.createdTime = new Date(r['created'] * 1000);
 

@@ -20,7 +20,7 @@
         <ng-template #treeViewList let-list>
             <div class="reply" *ngFor="let reply of list;let i=index">
                 <span class="user">{{ reply.author }}</span>
-                <div class="content" [innerHTML]="toHTML(reply.content)"></div>
+                <div class="content">{{ reply.content }}</div>
                 <div class="child">
                     <ng-container *ngTemplateOutlet="treeViewList;
                             context:{$implicit: reply.replies}">
