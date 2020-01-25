@@ -3,6 +3,7 @@ import { Observable } from 'rxjs'
 import { map } from "rxjs/operators";
 import { HttpClient } from '@angular/common/http'
 import { Thread } from '../models/thread'
+import { Reply } from '../models/reply'
 import { AppConfigService } from '../services/app-config.service'
 
 @Injectable({
@@ -26,6 +27,19 @@ export class CommonService {
                 return res['data']['children'].map(thread => {
                     return new Thread(thread['data']);
                 });
+            }
+            )
+        );
+    }
+
+    getComments(subreddit: string, id: string): Observable<Thread> {
+        return this.httpClient.get(this.appConfigService.baseUrl + eval('`' + this.appConfigService.threadUrlFormat + '`') + '.json').pipe(
+            map(res => {
+                let t = new Thread(res[0]['data']['children'][0]['data']);
+                t.replies = res[1]['data']['children'].map(reply => {
+                    return new Reply(reply['data']);
+                });
+                return t;
             }
             )
         );

@@ -1,0 +1,37 @@
+.thread .post {
+    margin-bottom: 1rem;
+}
+
+.thread .post .title {
+    font-size: 2rem;
+    color: #353535;
+}
+
+.thread .post .info .user {
+    color: #3d963b;
+}
+
+.thread .post .points {
+    color: #E64569;
+}
+
+.thread .post .comments {
+    color: #439ECF;
+}
+
+.thread .replies .reply {
+    margin-top: 10px;
+}
+
+.thread .replies .reply .content {
+    padding-bottom: 10px;
+    border-bottom: solid 1px lightgray;
+}
+
+.thread .replies .reply .child {
+    margin-left: 1rem;
+}
+
+.thread .replies .reply .user {
+    color: #3d963b;
+}

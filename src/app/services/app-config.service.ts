@@ -22,4 +22,11 @@ export class AppConfigService {
         }
         return this.appConfig.baseUrl;
     }
+
+    get threadUrlFormat() {
+        if (!this.appConfig) {
+            throw Error('Config file not loaded!');
+        }
+        return this.appConfig.threadUrlFormat;
+    }
 }

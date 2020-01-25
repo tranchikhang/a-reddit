@@ -10,6 +10,7 @@ import { SubredditComponent } from './components/subreddit/subreddit.component';
 import { ThreadListComponent } from './components/thread-list/thread-list.component'
 import { ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ThreadComponent } from './components/thread/thread.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
         DashboardComponent,
         SubredditComponent,
         ThreadListComponent,
-        NavbarComponent
+        NavbarComponent,
+        ThreadComponent
     ],
     imports: [
         BrowserModule,
