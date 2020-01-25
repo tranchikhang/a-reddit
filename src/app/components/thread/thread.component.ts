@@ -28,4 +28,8 @@ export class ThreadComponent implements OnInit {
             this.thread = res;
         })
     }
+
+    toHTML(input): any {
+        return new DOMParser().parseFromString(input, "text/html").documentElement.textContent;
+    }
 }
