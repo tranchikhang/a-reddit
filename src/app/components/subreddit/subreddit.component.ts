@@ -14,6 +14,7 @@ export class SubredditComponent implements OnInit {
     subreddit: String;
 
     constructor(private commonService: CommonService, private route: ActivatedRoute) {
+        this.subscribeRouteChange();
         this.threads = [];
         this.subreddit = this.route.snapshot.paramMap.get('subreddit');
     }
@@ -26,6 +27,13 @@ export class SubredditComponent implements OnInit {
         this.commonService.getSubreddit(this.subreddit).subscribe(res => {
             this.threads = res;
         })
+    }
+
+    subscribeRouteChange(): void {
+        this.route.params.subscribe(params => {
+            this.subreddit = params.subreddit;
+            this.loadSubreddit();
+        });
     }
 
 }

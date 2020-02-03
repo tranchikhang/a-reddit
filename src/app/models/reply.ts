@@ -10,14 +10,18 @@ export class Reply {
     constructor(r: any) {
         this.id = r['id'];
         this.author = r['author'];
-        this.score = r['score'];
+        this.score = r['ups'];
         this.content = r['body_html']
         this.permalink = r['permalink'];
         this.createdTime = new Date(r['created'] * 1000);
+        this.replies = [];
 
         if (r['replies']) {
-            this.replies = r['replies']['data']['children'].map(reply => {
-                return new Reply(reply['data']);
+            r['replies']['data']['children'].forEach(reply => {
+                if (reply['kind'] != 'more') {
+                    let r = new Reply(reply['data']);
+                    this.replies.push(r);
+                }
             });
         }
     }

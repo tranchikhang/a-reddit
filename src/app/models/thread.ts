@@ -23,5 +23,6 @@ export class Thread {
         this.num_comments = t['num_comments'];
         this.createdTime = new Date(t['created'] * 1000);
         this.content = t['selftext'];
+        this.replies = [];
     }
 }

@@ -32,13 +32,15 @@ export class CommonService {
         );
     }
 
-
     getComments(subreddit: string, id: string): Observable<Thread> {
         return this.httpClient.get(this.appConfigService.baseUrl + eval('`' + this.appConfigService.threadUrlFormat + '`') + '.json').pipe(
             map(res => {
                 let t = new Thread(res[0]['data']['children'][0]['data']);
-                t.replies = res[1]['data']['children'].map(reply => {
-                    return new Reply(reply['data']);
+                res[1]['data']['children'].forEach(reply => {
+                    if (reply['kind'] != 'more') {
+                        let r = new Reply(reply['data']);
+                        t.replies.push(r);
+                    }
                 });
                 return t;
             }

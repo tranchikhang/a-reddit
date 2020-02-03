@@ -19,7 +19,7 @@
         </ng-container>
         <ng-template #treeViewList let-list>
             <div class="reply" *ngFor="let reply of list;let i=index">
-                <span class="user">{{ reply.author }}</span>
+                <span class="user">{{ reply.author }}</span><span class="points"> {{ reply.score }}</span> pts
                 <div class="content" [innerHTML]="toHTML(reply.content)"></div>
                 <div class="child">
                     <ng-container *ngTemplateOutlet="treeViewList;
